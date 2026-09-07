@@ -22,7 +22,11 @@ rating_pelicula4=7.7
 nombre_pelicula5="Son como niños"
 genero_pelicula5="Comedia"
 anio_pelicula5=2010 
-rating_pelicula=6
+rating_pelicula5=6
+nombre_pelicula6="Spiderman"
+genero_pelicula6="accion"
+anio_pelicula6=2002
+rating_pelicula6=7.4
 print("----GENEROS----")
 print("ACCION")
 print("COMEDIA")
@@ -37,4 +41,7 @@ if (genero_pelicula3==genero_favorito):
 if(genero_pelicula4==genero_favorito):
     print(nombre_pelicula4)
 if (genero_pelicula5==genero_favorito):
-    print(nombre_pelicula5)        
+    print(nombre_pelicula5)
+if (genero_pelicula6==genero_favorito):
+    print(nombre_pelicula6)    
+            
