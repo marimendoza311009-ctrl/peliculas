@@ -1,26 +1,26 @@
-ARCHIVO="ventas.txt"
-def cargar_ventas():
-    try:
+import csv
 
-        with open(ARCHIVO,"a",encoding="utf-8") as archivo:
-            tipo=input("Tipo de madera:")
-            precio=input("Valor de la venta:")
-            fecha=input("Fecha de la venta :")
-            cliente=input("Cliente: ")
-            entrega=input("Condicion de entrega: ")
-            archivo.write(f"{tipo} \t {precio} \t {fecha}  \t {cliente} {entrega} \n")        
-    except PermissionError:
-        print("Error en los permisos")
-    except OSError as error:
-        print(f" Problemas con el archivo usando el SO {error} ")
-def main():
-  seguir="s"
-  while (seguir=="s"):
-         cargar_ventas()
-         seguir=input("¿Necesita registrar otra venta?").lower()     
+totales={}
+unidades={}
 
 
+with open("ventas.csv",encoding="utf-8",newline="") as archivo:
+    lector=csv.DictReader(archivo,delimiter=";")
+    for fila in lector:
+        cantidad=int(fila["cantidad"])
+        sucursal=fila["sucursal"]
+        producto=fila["producto"]
+        precio=float(fila["precio_unitario"].replace(",","."))
+        #print(f"{cantidad} {sucursal} {producto} {precio}")
+        totales[sucursal]=totales.get(sucursal,0)+cantidad*precio
+        unidades[producto]=unidades.get(producto,0)+cantidad
+print(totales)        
+print(unidades)
 
 
-if __name__ == "__main__":
-  main()
+                       
+
+
+
+
+    
